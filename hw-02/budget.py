@@ -35,9 +35,28 @@ class Budget:
                 Specifies the monthly income
         '''
         self.income = income
-
+        self.expenses = 0
+        self.categories = {}
+        
     def get_income(self):
         '''
         Prints the current income. Requires no arguments.
         '''
         print('Your current income is %i dollars' %self.income)
+
+    def add_expense(self, category, limit):
+        self.categories[category] = limit
+        self.expenses += limit
+
+    def check_budget(self):
+        print('Income is',self.income,'dollars.','\nExpenses total',self.expenses,'dollars.')
+        if(self.income >= self.expenses):
+            print("You are at or under budget. You have",self.income-self.expenses,"dollars remaining.")
+        else:
+            print("You are",self.expenses-self.income,'dollars over budget! Adjust your expenses.')
+
+    def adjust_income(self, adjustment):
+        self.income += adjustment
+
+        
+
