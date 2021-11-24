@@ -60,3 +60,16 @@ class Budget:
 
         
 
+class EnhancedBudget(Budget):
+    def __init__(self,income):
+        self.transactions={}
+        self.income=income
+        self.categories={}
+        self.expenses=0
+    def log_transaction(self,category,amount):
+        if category in self.transactions:
+            self.transactions[category].append(amount)
+        else:
+            self.transactions[category]=[amount]
+    
+        
